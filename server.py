@@ -18,7 +18,14 @@ elem=[]
 app = Flask(__name__)
 vendors = [{'name': 'huawei', 'url': 'huawei'},
            {'name': 'dell', 'url': 'dell'},
-           {'name': 'redhat', 'url': 'redhat'}]
+           {'name': 'vmware', 'url': 'vmware'},
+           {'name': 'veeam', 'url': 'veeam'},
+           {'name': 'netapp', 'url': 'netapp'},
+           {'name': 'lenovo', 'url': 'lenovo'},
+           {'name': 'fujitsu', 'url': 'fujitsu'},
+           {'name': 'juniper', 'url': 'juniper'},
+           {'name': 'mikrotik', 'url': 'mikrotik'},
+           {'name': 'intel', 'url': 'intel'}]
 
 #selecting last 15 documents for mainpage and vendors
 
