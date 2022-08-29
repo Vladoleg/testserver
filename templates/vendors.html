@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block table %}
+
+{% for k in elem  %}
+    <ul>
+    <li><a href="{{k.url}}"> {{k.name}} </a></li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}
