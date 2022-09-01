@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
-
+{% block text %} in database {% endblock %}
 {% block table %}
 
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Published</th>
+	 <th>Last-modified</th>
+   </tr>
+
+     {% for i in e %}
+     <tr>
+     	<td> {{i}} </td>
+     </tr>
+     {% endfor %}
+   </table>
+
+
+
+<!--
 {% for k in elem  %}
     <ul>
     <li><a href="{{k.url}}"> {{k.name}} </a></li>
     </ul>
     {% endfor %}
+-->
 
 {% endblock %}

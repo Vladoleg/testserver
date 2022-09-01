@@ -20,16 +20,26 @@
     text-align: left;
 }
 
-header {background: black;color:white;}
+header {background: black;color:red;}
 footer {background: #aaa;color:white;}
 .nav {background:gray;
-	width: 0}
+	width: 0;
+}
+
+.mainmenu > li > a {
+	text-transform:uppercase;
+	font-size: 16px;
+	font-weight:bold;
+	color:orange;	
+}
 
 .nav ul {
     list-style-type: none;
     padding: 1;
 }
+
 .nav ul a {
+	display: block;
     text-decoration: none;
 }
 
@@ -60,7 +70,7 @@ tr:nth-child(even) {
 
 <div class="flex-container">
 <header>
-  <h1>Last 20 vulnerabilities</h1>
+  <h1> Last 15 vulnerabilities {% block text %}{% endblock %}</h1>
 </header>
 
 <nav class="nav">
@@ -78,13 +88,6 @@ tr:nth-child(even) {
 <article class="article">
   {% block table %}
   {% endblock %}
-  <!--
-	{% for k in elem  %}
-    <ul>
-	<li><a href="{{k.url}}"> {{k.name}} </a></li>
-	</ul>
-	{% endfor %}
-  -->
 </article>
 
 <footer>GigaCloud Vulnerability Services</footer>
