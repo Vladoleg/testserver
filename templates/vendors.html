@@ -4,6 +4,24 @@
 
 {% block table %}
 
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Published</th>
+      <th>Last-modified</th>
+    </tr>
+
+      {% for i in e %}
+      <tr>
+         <td><a href="{{i['url']}}"> {{i['id']}} </a></td>
+         <td> {{i['Published']}} </td>
+         <td> {{i['last-modified']}} </td>
+      </tr>
+{% endfor %}
+</table>
+
+
+<!--
 {% for k in elem  %}
     <ul>
     <li><a href="{{k.url}}"> {{k.name}} </a></li>
@@ -11,3 +29,4 @@
     {% endfor %}
 
 {% endblock %}
+-->

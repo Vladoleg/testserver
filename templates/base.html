@@ -20,7 +20,7 @@
     text-align: left;
 }
 
-header {background: black;color:red;}
+header {background: black;color:blue;}
 footer {background: #aaa;color:white;}
 .nav {background:gray;
 	width: 0;
@@ -80,7 +80,7 @@ tr:nth-child(even) {
 
 <ul class="mainmenu">
   {% for m in vendors -%}
-  <li><a href="{{m.url}}"> {{m.name}} </a></li>
+  <li><a href={{url_for('vndr', vendor=m.url)}}> {{m.name}} </a></li>
   {% endfor -%}
 </ul>
 </nav>

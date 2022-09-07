@@ -11,10 +11,12 @@
 
      {% for i in e %}
      <tr>
-     	<td> {{i}} </td>
+     	<td><a href="{{i['url']}}"> {{i['id']}} </a></td>
+		<td> {{i['Published']}} </td>
+		<td> {{i['last-modified']}} </td>
      </tr>
      {% endfor %}
-   </table>
+</table>
 
 
 
