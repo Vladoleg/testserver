@@ -34,7 +34,7 @@ vendors = [{'name': 'huawei', 'url': 'huawei'},
 #selecting last 15 documents for mainpage or vendor page
 def last_15(*vendor):
 	elem.clear()
-	li = {'id':1, 'Published':1, 'last-modified':1, '_id':0}
+	li = {'id':1, 'Published':1, 'last-modified':1, 'vendors':1,  '_id':0}
 	if vendor:
 		for i in collection.find({'vendors': vendor}, li).sort('last-modified', -1).limit(15):
 			a = i
@@ -45,8 +45,19 @@ def last_15(*vendor):
 			a = i
 			a['url'] = 'cveinfo/'+i['id']
 			elem.append(a)
-	return elem 
+	return elem
+'''
+x=0
+def test(vendors, cond):
+	elem.clear()
+	li = {'id':1, 'Published':1, 'last-modified':1, '_id':0, 'vendors':1}
+	for i in collection.find({'$and': [{'last-modified': {'$gt': week}}, {'vendors':'redhat'}]}, li).sort('last-modified, -1'):
+		elem.append(i)
+	return elem
 
+a = test('redhat', week)
+pprint (a)
+'''
 
 # Main page with last 15 cve
 @app.route('/')
@@ -66,6 +77,10 @@ def cvepage(cveid):
 	cve = collection.find_one({'id': cveid})
 	return render_template('cveinfo.html', vendors=vendors, cve=cve, fields=fields)
 
+
+@app.errorhandler(404)
+def errorpage(error):
+	return render_template('error_page.html', title='Page not found', vendors=vendors)
 
 if __name__=="__main__":
 	app.run(debug=True, host='192.168.0.9', port=80)
